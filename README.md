@@ -31,6 +31,7 @@ both on what I know, and what might be suitable for such puzzles):
 * Kotlin
 * Octave
 * Erlang
+* Pony
 * Icon
 * COMAL
 * Eiffel
