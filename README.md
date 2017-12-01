@@ -46,7 +46,7 @@ both on what I know, and what might be suitable for such puzzles):
 * Algol
 * 6502 assembly
 
-Used:
+Used (this year's entries in bold):
 
 * C ([2016, day 23](https://github.com/ttencate/aoc2016/23_c))
 * C++ ([2016, day 24](https://github.com/ttencate/aoc2016/24_cpp))
@@ -65,6 +65,7 @@ Used:
 * Pascal ([2016, day 10](https://github.com/ttencate/aoc2016/10_pascal))
 * Pen and paper (and a calculator) ([2016, day 15](https://github.com/ttencate/aoc2016/15_pen_and_paper))
 * Perl ([2016, day 21](https://github.com/ttencate/aoc2016/21_perl))
+* **PostgreSQL** ([2017, day 1](01_postgresql))
 * Python ([2016, day 5](https://github.com/ttencate/aoc2016/05_python))
 * R ([2016, day 6](https://github.com/ttencate/aoc2016/06_r))
 * Ruby ([2016, day 19](https://github.com/ttencate/aoc2016/19_ruby))
