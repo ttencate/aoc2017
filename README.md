@@ -47,10 +47,10 @@ both on what I know, and what might be suitable for such puzzles):
 * APL
 * Ada
 * Algol
-* 6502 assembly
 
 Used (this year's entries in bold):
 
+* Any assembly (x86, [2016, day 7](https://github.com/ttencate/aoc2016/07_x86_assembly))
 * C ([2016, day 23](https://github.com/ttencate/aoc2016/23_c))
 * C++ ([2016, day 24](https://github.com/ttencate/aoc2016/24_cpp))
 * C# ([2016, day 17](https://github.com/ttencate/aoc2016/17_cs))
@@ -76,7 +76,6 @@ Used (this year's entries in bold):
 * Scala ([2016, day 3](https://github.com/ttencate/aoc2016/03_scala))
 * Scheme ([2016, day 2](https://github.com/ttencate/aoc2016/02_scheme))
 * Sh (bash and common shell utilities) ([2016, day 4](https://github.com/ttencate/aoc2016/04_bash))
-* x86 assembly ([2016, day 7](https://github.com/ttencate/aoc2016/07_x86_assembly))
 
 ## Rules
 
