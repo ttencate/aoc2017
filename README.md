@@ -32,6 +32,7 @@ both on what I know, and what might be suitable for such puzzles):
 * Octave
 * Erlang
 * Icon
+* COMAL
 * Eiffel
 * Prolog
 * CUDA
