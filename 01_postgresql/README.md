@@ -1,4 +1,4 @@
-# [Day 1](http://adventofcode.com/2017/day/1) in SQL
+# [Day 1](http://adventofcode.com/2017/day/1) in PostgreSQL
 
 I've been doing some SQL recently, so this seems like a good exercise. I'm not
 sure if SQL is even Turing-complete, but it should be possible to crack this
