@@ -35,6 +35,7 @@ both on what I know, and what might be suitable for such puzzles):
 * Icon
 * COMAL
 * Eiffel
+* Elm
 * Prolog
 * CUDA
 * GLSL
