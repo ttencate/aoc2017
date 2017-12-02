@@ -47,6 +47,7 @@ both on what I know, and what might be suitable for such puzzles):
 * APL
 * Ada
 * Algol
+* TeX
 * Infinifactory
 
 Used (this year's entries in bold):
