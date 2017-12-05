@@ -26,7 +26,6 @@ both on what I know, and what might be suitable for such puzzles):
 * Dart
 * Nim
 * REBOL
-* Forth
 * F#
 * Kotlin
 * Octave
@@ -58,6 +57,7 @@ Used (this year's entries in bold):
 * C# ([2016, day 17](https://github.com/ttencate/aoc2016/17_cs))
 * COBOL ([2016, day 1](https://github.com/ttencate/aoc2016/01_cobol))
 * D ([2016, day 11](https://github.com/ttencate/aoc2016/11_d))
+* **Forth** ([2016, day 2](02_forth))
 * Fortran 90 ([2016, day 8](https://github.com/ttencate/aoc2016/08_fortran))
 * Go ([2016, day 25](https://github.com/ttencate/aoc2016/25_go))
 * Groovy ([2016, day 13](https://github.com/ttencate/aoc2016/13_groovy))
