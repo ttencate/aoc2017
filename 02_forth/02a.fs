@@ -6,9 +6,8 @@ create line-buf max-line chars allot
   over ( min value max value )
   max ( min value max' )
   rot ( value max' min )
-  2 pick ( value max' min value )
-  min ( value max' min' )
-  rot drop ( max' min' )
+  rot ( max' min value )
+  min ( max' min' )
 ;
 
 : compute-max-min' { maxv minv value -- max' min' }
