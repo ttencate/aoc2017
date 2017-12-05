@@ -17,5 +17,11 @@ figure out where in the edge of the shell we are. An optimal solution would be
 not to enumerate the shells at all, but compute the right shell analytically
 with a floored square root.
 
-I chose the second solution, because it should be fast enough, is easier to
-debug, and has less potential for off-by-one errors.
+I chose the second solution, because it should be fast enough even if Part Two
+ups the ante, is easier to debug, and has less potential for off-by-one errors.
+
+---
+
+For part two, actually the naive spiral walking solution would have been more
+useful. Time for a rewrite. The coordinate system from the first part came in
+useful after all.
