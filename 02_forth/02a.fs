@@ -11,6 +11,11 @@ create line-buf max-line chars allot
   rot drop ( max' min' )
 ;
 
+: compute-max-min' { maxv minv value -- max' min' }
+  maxv value max
+  minv value min
+;
+
 : line-max-min \ parses the line and computes the min and max ( c-addr length -- max min )
   0 99999999 2swap ( max min c-addr length )
   begin

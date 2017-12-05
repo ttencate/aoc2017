@@ -45,3 +45,11 @@ large integer. `s>d` and `d>s` can be used to convert back and forth between
 singles and doubles, but mainly the trick is to keep all stack operations
 straight. Doubles are the reason that several stack operations come in a `2`
 variant, like `2swap` and `2tuck`.
+
+Finally, the most Forthy bit I wrote was the `compute-max-min` word, which updates the current maximum and minimum:
+
+    : compute-max-min ( max min value -- max' min' )
+
+It's full of lovely stack manipulations. For fun, I also wrote a much more
+readable two-line version using "locals" (which pop cells from the stack and
+binds them to local names).
