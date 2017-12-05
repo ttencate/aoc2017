@@ -38,7 +38,6 @@ both on what I know, and what might be suitable for such puzzles):
 * Prolog
 * CUDA
 * GLSL
-* TCL
 * Smalltalk
 * Julia
 * AWK
@@ -78,6 +77,7 @@ Used (this year's entries in bold):
 * Scala ([2016, day 3](https://github.com/ttencate/aoc2016/03_scala))
 * Scheme ([2016, day 2](https://github.com/ttencate/aoc2016/02_scheme))
 * Sh (bash and common shell utilities) ([2016, day 4](https://github.com/ttencate/aoc2016/04_bash))
+* **TCL** ([2017, day 3](03_tcl))
 
 ## Rules
 
