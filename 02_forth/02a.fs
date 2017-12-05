@@ -16,6 +16,10 @@ create line-buf max-line chars allot
   minv value min
 ;
 
+: skip-char ( c-addr length -- c-addr' length' )
+  1 - swap 1 + swap
+;
+
 : line-max-min \ parses the line and computes the min and max ( c-addr length -- max min )
   0 99999999 2swap ( max min c-addr length )
   begin
@@ -24,7 +28,7 @@ create line-buf max-line chars allot
     0. ( max min c-addr length value-d )
     2swap ( max min value-d c-addr length )
     >number ( ud1 c-addr1 u1 -- ud2 c-addr2 u2 ) ( max min value-d c-addr length )
-    1 - swap 1 + swap \ skip the tab character
+    skip-char
     2rot ( value-d c-addr length max min )
     2rot ( c-addr length max min value-d )
     d>s ( c-addr length max min value )
