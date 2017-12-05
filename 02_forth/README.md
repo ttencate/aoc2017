@@ -63,3 +63,9 @@ On to part two, which requires a structurally different program... we now need
 to keep all numbers in memory and try to divide each pair. I'm sure this can be
 done with another memory buffer, but for kicks, I'll try to manage the array
 entirely on the stack.
+
+With some shunting values onto the return stack temporarily to get them out of
+the way, and judicious use of the `pick` word which lets you dig deeply into
+the stack, this only took an hour or two. Usage of locals could have cleaned
+thing up a bit, but it's not standard Forth and I wanted the classical
+experience. It seems I got it.
