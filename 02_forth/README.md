@@ -16,7 +16,9 @@ As is often the case, figuring out how to read the input is a relatively big
 hurdle. It needs memory allocation that is not on the "regular" stack, nor on
 the return stack, but on yet another stack (although equivalents of `malloc`
 and `free` also exist). A fixed size buffer will do for now, and we have a
-sequence of bytes in memory and the length on the stack.
+sequence of bytes in memory and the length on the stack. Such strings are
+commonly represented as pairs `c-addr u` on the stack, where `c-addr` is the
+address of the first element and `u` is the length.
 
 Then I tackled the overall structure. There should be a function ("word" in
 Forth parlance, although word is broader) to compute the min and max of a line.
@@ -46,10 +48,18 @@ singles and doubles, but mainly the trick is to keep all stack operations
 straight. Doubles are the reason that several stack operations come in a `2`
 variant, like `2swap` and `2tuck`.
 
-Finally, the most Forthy bit I wrote was the `compute-max-min` word, which updates the current maximum and minimum:
+Finally, the most Forthy bit I wrote was the `compute-max-min` word, which
+updates the current maximum and minimum:
 
     : compute-max-min ( max min value -- max' min' )
 
 It's full of lovely stack manipulations. For fun, I also wrote a much more
 readable two-line version using "locals" (which pop cells from the stack and
 binds them to local names).
+
+---
+
+On to part two, which requires a structurally different program... we now need
+to keep all numbers in memory and try to divide each pair. I'm sure this can be
+done with another memory buffer, but for kicks, I'll try to manage the array
+entirely on the stack.

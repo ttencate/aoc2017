@@ -40,4 +40,6 @@ After these hurdles, it was a fairly simple matter to split the input into a
 numbered table (using another PostgreSQLism, `WITH ORDINALITY`), shift it by
 one, join it, and sum the matches.
 
+---
+
 On to part two, which was mercifully not very different and a one-line change.
