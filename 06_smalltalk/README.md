@@ -41,4 +41,5 @@ embarrassingly long to realise.
 
 ---
 
-Part Two
+For the second part, we need to track when a state was first encountered. A
+`LookupTable` is perfect for this.
