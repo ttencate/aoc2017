@@ -40,7 +40,6 @@ both on what I know, and what might be suitable for such puzzles):
 * GLSL
 * Smalltalk
 * Julia
-* AWK
 * J
 * APL
 * Ada
@@ -50,7 +49,8 @@ both on what I know, and what might be suitable for such puzzles):
 
 Used (this year's entries in bold):
 
-* Any assembly (x86, [2016, day 7](https://github.com/ttencate/aoc2016/07_x86_assembly))
+* Assembly, any architecture (x86, [2016, day 7](https://github.com/ttencate/aoc2016/07_x86_assembly))
+* awk ([2017, day 4](04_awk))
 * C ([2016, day 23](https://github.com/ttencate/aoc2016/23_c))
 * C++ ([2016, day 24](https://github.com/ttencate/aoc2016/24_cpp))
 * C# ([2016, day 17](https://github.com/ttencate/aoc2016/17_cs))
