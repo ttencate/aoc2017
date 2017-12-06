@@ -32,6 +32,13 @@ Then all I need is a hash table to track the words used in the current line. Of
 course awk provides: associative arrays are created and addressed using square
 brackets, `my_array[key]`.
 
+---
+
+For part two, the trick is to sort the letters of each word before using it as
+the associative array index. POSIX awk does not have a sort function, so I'll
+just write my own bubble sort. In-line, because POSIX awk does not have
+user-defined functions either. It's worth noting here that arrays are 1-based.
+
 In short, I found ack to be a surprisingly practical language to work with, far
 more similar to C than I'd expected, and also more powerful than the
 alternatives I'd been using so far. A good tool to have in my toolbox!

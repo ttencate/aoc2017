@@ -1,5 +1,5 @@
 .PHONY: all
-all: run04a # run04b
+all: run04a run04b
 
 run%: %.awk
 	awk -f $< < input
