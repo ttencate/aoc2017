@@ -41,4 +41,5 @@ and not actually difficult (unlike COBOL).
 
 ---
 
-Part Two
+Part two was a straightforward change, although the program took about 25
+seconds to execute the 30 million steps needed.
