@@ -1,5 +1,5 @@
 .PHONY: all
 all: run07a # run07b
 
-run%: %.EXT
-	# RECIPE
+run%: %.coffee
+	coffee $< < input
