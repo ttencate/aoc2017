@@ -57,4 +57,6 @@ nicely typeset `.pdf` file with debug output!
 
 ---
 
-Part Two
+I was terrified that the second part would have me do something
+near-impossible, so I was happily surprised that all I needed to do was keep a
+running maximum. It was actually even easier than the first part!

@@ -1,0 +1,85 @@
+\def\ensurereg#1{%
+  \expandafter\ifx\csname reg#1\endcsname\relax
+    \expandafter\xdef\csname reg#1\endcsname{0}%
+  \fi
+}
+\def\getreg#1{\csname reg#1\endcsname}
+\def\increg#1#2{%
+  \expandafter\count11=\getreg{#1}%
+  \expandafter\advance\count11 by #2%
+  \expandafter\xdef\csname reg#1\endcsname{\number\count11}%
+}
+
+% \getreg{abc} \increg{abc}{5} \getreg{abc} \increg{abc}{7} \getreg{abc} \increg{abc}{-1} \getreg{abc} \end
+
+\def\eq{==}
+\def\ne{!=}
+\def\gt{>}
+\def\ge{>=}
+\def\lt{<}
+\def\le{<=}
+\def\inc{inc}
+\def\dec{dec}
+\def\parseline#1 #2 #3 if #4 #5 #6 {%
+  \tracingmacros=1
+  {\tt #1 #2 #3 if #4 #5 #6}\par
+  \ensurereg{#1}
+  \ensurereg{#4}
+  \edef\regval{\getreg{#1}}
+  \edef\incdec{#2}
+  \ifx\incdec\inc
+    \edef\change{#3}
+    \def\symbol{+}
+  \else
+    \edef\change{-#3}
+    \def\symbol{-}
+  \fi
+  \edef\condregval{\getreg{#4}}
+  \edef\operator{#5}
+  \edef\testval{#6}
+  \def\execute{%
+    setting {\tt#1} from $\getreg{#1}$
+    to $\regval$ $\symbol$ $#3$ =
+    \increg{#1}{\change}%
+    $\getreg{#1}$.%
+    \edef\newregval{\getreg{#1}}
+    \ifnum\newregval>\maxvalue
+      \xdef\maxvalue{\newregval}
+      New maximum set to \maxvalue.\par
+    \fi
+  }
+  \def\skip{skipping.}
+  {\tt#4} = $\condregval$,
+  \ifx\operator\eq\ifnum\condregval=\testval\execute\else\skip\fi\fi
+  \ifx\operator\ne\ifnum\condregval=\testval\skip\else\execute\fi\fi
+  \ifx\operator\gt\ifnum\condregval>\testval\execute\else\skip\fi\fi
+  \ifx\operator\ge\ifnum\condregval<\testval\skip\else\execute\fi\fi
+  \ifx\operator\lt\ifnum\condregval<\testval\execute\else\skip\fi\fi
+  \ifx\operator\le\ifnum\condregval>\testval\skip\else\execute\fi\fi
+
+  \par\vskip 0.5em
+}
+
+\gdef\maxvalue{0}
+
+\def\readlines{
+  \read1 to \curline
+  \ifeof1
+    END OF FILE
+    \par\vskip 1em
+    \let\next=\relax
+  \else
+    \expandafter\parseline\curline
+    \let\next=\readlines
+  \fi
+  \next
+}
+\openin1=/dev/stdin
+\readlines
+\closein1
+
+Maximum is {\bf\maxvalue}
+
+\immediate\write17{\maxvalue}
+
+\end
