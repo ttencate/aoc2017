@@ -41,7 +41,6 @@ both on what I know, and what might be suitable for such puzzles):
 * J
 * APL
 * Ada
-* TeX
 * Infinifactory
 
 Used, in alphabetical order (this year's entries in bold):
@@ -78,6 +77,7 @@ Used, in alphabetical order (this year's entries in bold):
 * Sh (bash and common shell utilities) ([2016, day 4](https://github.com/ttencate/aoc2016/04_bash))
 * **Smalltalk** ([2017, day 6](06_smalltalk))
 * **TCL** ([2017, day 3](03_tcl))
+* **TeX** ([2017, day 8](08_tex))
 
 ## Rules
 
