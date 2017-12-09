@@ -37,7 +37,6 @@ both on what I know, and what might be suitable for such puzzles):
 * Prolog
 * CUDA
 * GLSL
-* Julia
 * J
 * APL
 * Ada
@@ -61,6 +60,7 @@ Used, in alphabetical order (this year's entries in bold):
 * Haskell ([2016, day 16](https://github.com/ttencate/aoc2016/16_haskell))
 * Haxe ([2016, day 22](https://github.com/ttencate/aoc2016/22_haxe))
 * JavaScript ([2016, day 20](https://github.com/ttencate/aoc2016/20_javascript))
+* **Julia** ([2017, day 9](09_julia))
 * Lua ([2016, day 18](https://github.com/ttencate/aoc2016/18_lua))
 * OCaml ([2016, day 12](https://github.com/ttencate/aoc2016/12_ocaml))
 * OpenCL ([2016, day 14](https://github.com/ttencate/aoc2016/14_opencl))

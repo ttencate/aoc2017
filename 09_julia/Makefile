@@ -1,5 +1,5 @@
 .PHONY: all
 all: run09a # run09b
 
-run%: %.EXT
-	# RECIPE
+run%: %.jl
+	julia -- $< < input
