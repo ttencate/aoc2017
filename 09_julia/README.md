@@ -22,4 +22,6 @@ fixed it by adding a `global` declaration for them.
 
 ---
 
-Part Two
+Part two was a fairly straightforward adjustment to which functions do the
+counting: `readGarbage` instead of `readGroup`. Skipping `!` pairs was
+conveniently already implemented.

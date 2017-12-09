@@ -25,18 +25,21 @@ end
 
 function readGarbage()
   next() # skip '<'
+  score = 0
   while cur() != '>'
+    score += 1
     next()
   end
   next()
+  score
 end
 
 function readGroup(depth)
   next() # skip '{'
-  score = depth
+  score = 0
   while cur() != '}'
     if cur() == '<'
-      readGarbage()
+      score += readGarbage()
     elseif cur() == '{'
       score += readGroup(depth + 1)
     end
