@@ -1,4 +1,4 @@
-# [Day 5](http://adventofcode.com/2017/day/5) in ALGOL
+# [Day 5](http://adventofcode.com/2017/day/5) in ALGOL 68
 
 Previously, COBOL was the oldest programming language I had used, and that
 wasn't an experience worth repeating. But today I'm going to go one year
@@ -6,6 +6,11 @@ further back, to 1958, and write this jump table thing in ALGOL. ALGOL 68, to be
 precise, in the [Algol 68 Genie](https://jmvdveer.home.xs4all.nl/algol.html)
 implementation. It seems that the ALGOL language has been very influential on
 modern-day languages, so maybe it will be somewhat familiar.
+
+_Update: a redditor
+[informed](https://www.reddit.com/r/adventofcode/comments/7hngbn/2017_day_5_solutions/dr2x3vo/)
+me that ALGOL 68 is nothing like the original, so I've updated the naming here
+accordingly.
 
 Because machines back in the day had wildly different character sets, ALGOL
 programs can look syntactically different depending on the flavour
