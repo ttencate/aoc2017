@@ -28,7 +28,6 @@ both on what I know, and what might be suitable for such puzzles):
 * F#
 * Kotlin
 * Octave
-* Erlang
 * Pony
 * Icon
 * COMAL
@@ -52,6 +51,7 @@ Used, in alphabetical order (this year's entries in bold):
 * COBOL ([2016, day 1](https://github.com/ttencate/aoc2016/01_cobol))
 * **CoffeeScript** ([2017, day 7](07_coffeescript))
 * D ([2016, day 11](https://github.com/ttencate/aoc2016/11_d))
+* **Erlang** ([2017, day 10](10_erlang))
 * **Forth** ([2016, day 2](02_forth))
 * Fortran 90 ([2016, day 8](https://github.com/ttencate/aoc2016/08_fortran))
 * Go ([2016, day 25](https://github.com/ttencate/aoc2016/25_go))
