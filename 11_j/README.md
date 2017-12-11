@@ -90,7 +90,10 @@ pen and paper though.
 
 ---
 
-Part Two
+Onwards to the second part! Computing the entire path is a one-character
+change: `\` combined with `/` will compute cumulative sums. Then I just need to
+write that verb that I was too lazy to make before, to take an `x y` position
+and output the distance, depending on the "hexant" the position is in.
 
 Conclusion: the J language is bonkers. Its main selling point is "array
 processing", but one can do parallel operations on arrays in many other
