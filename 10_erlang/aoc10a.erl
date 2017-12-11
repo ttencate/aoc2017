@@ -18,9 +18,12 @@ element(Index) ->
 
 element(Pids, Index, Value, Position, Skip) ->
   Marks = length(Pids),
+  % BUGGY! See README.md for details.
+  io:format("Element ~w has value ~w (position = ~w, skip = ~w)~n", [Index, Value, Position, Skip]),
   receive
     {length, Length} ->
       DestIndex = dest_index(Marks, Index, Position, Length),
+      io:format("Element ~w sending ~w to element dest_index(~w, ~w, ~w, ~w) = ~w~n", [Index, Value, Marks, Index, Position, Length, DestIndex]),
       lists:nth(DestIndex + 1, Pids) ! {value, Value},
       receive
         {value, NewValue} ->
@@ -45,9 +48,8 @@ start() ->
   Lengths = lists:map(ParseInt, string:tokens(Input, ",")),
   Marks = 256,
   Pids = lists:map(fun(Index) -> spawn(aoc10a, element, [Index]) end, lists:seq(0, Marks - 1)),
-  lists:map(fun(Pid) -> Pid ! {pids, Pids} end, Pids),
-  lists:map(fun(Length) -> lists:map(fun(Pid) -> Pid ! {length, Length} end, Pids) end, Lengths),
-  lists:map(fun(Pid) -> Pid ! done end, Pids),
+  lists:foreach(fun(Pid) -> Pid ! {pids, Pids} end, Pids),
+  lists:foreach(fun(Length) -> lists:foreach(fun(Pid) -> Pid ! {length, Length} end, Pids) end, Lengths),
   Answer = get_result(lists:nth(1, Pids)) * get_result(lists:nth(2, Pids)),
   io:format("~w~n", [Answer]),
   halt().

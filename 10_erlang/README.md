@@ -32,6 +32,25 @@ The main process, after sending out all the input, simply sends `report` to
 processes 1 and 2 (lists are 1-based in Erlang), waits for two answers,
 multiplies them and prints the result.
 
+This all worked and gave me the right answer! Once, as I found out. Apparently
+I messed something up, and it's actually nondeterministic – but it works
+"reliably" when I leave my debug printing in. Good enough, because bedtime is
+drawing near.
+
 ---
 
-Part Two
+For the second part, it seems I can conveniently treat an Erlang string as a
+list of numbers. Doing the additional rounds is easy, except it's too slow with
+my debug printing, so I have to fix this synchronization bug after all...
+Eventually it dawned on me: these processes are _not_ in lockstep; for example,
+if a process only sends to itself, it can get ahead of the others. And if
+it then hits a point where it does send a value to another process, the other
+process might be receiving its values out of order... and boom.
+
+As a fix, I'll have all processes report "done" to the main process before we
+send out the next round of input. This increases the number of messages by 50%,
+but we weren't exactly going for efficiency here anyway. This worked well.
+
+The final hash computation will be done on the main process. As the last step,
+it asks every worker for its value, and sticks them all into a list. Then it's
+a simple matter of sequential code to find the answer.
