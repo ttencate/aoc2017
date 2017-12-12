@@ -14,6 +14,17 @@ depend on NodeJS, as far as I can tell. Despite Dart being a statically typed
 language, the VM does not do static analysis, so if you want "compile-time"
 errors you need to run `dartanalyzer` yourself.
 
+The solution for this puzzle is pretty unexciting. I used a regex for parsing
+the line (probably overkill), a streamed thingy to break it up, and then a
+depth-first search to find the answer.
+
 ---
 
-Part Two
+The second part wasn't much harder. Just do DFS traversals from any node that
+hasn't been visited before, until none remain.
+
+Brief conclusion about the Dart language, after my 15 minutes of experience
+with it: thoroughly unsurprising and unexciting. Dart may have been the bee's
+knees before ES6, TypeScript, Flow and all the others happened, but now it's
+just one of many. But, for all that, it seems like a fine language, with good
+principles and great documentation.
