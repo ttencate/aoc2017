@@ -18,3 +18,5 @@ explicit loops needed.
 I had totally seen part two coming. (It was either this, or "compute the
 minimum severity that can be achieved".) Here, a simple brute force solution
 worked well on the example input, but takes a while to run on the real thing.
+Because I had other stuff to do, I just set it to run; it actually only took
+three minutes.
