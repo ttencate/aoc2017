@@ -20,3 +20,16 @@ minimum severity that can be achieved".) Here, a simple brute force solution
 worked well on the example input, but takes a while to run on the real thing.
 Because I had other stuff to do, I just set it to run; it actually only took
 three minutes.
+
+After some pointers from friends who all got their brute-force results much
+quicker, and because I'm all caught up with AoC anyway, I tried some
+optimizations. All measurements below were done on my laptop (AMD A4-7210 at
+1.8 GHz) using the `time` command. Each step below includes the ones before it.
+
+* Original: **3m19s**.
+* Using `~all(...)` instead of `sum(... == 0) == 0`: **3m7s**.
+* Caching the periods for all scanners: **2m54s**.
+* Using `bsxfun` instead of passing matrices to `mod` and `+` directly: **oh
+  crap my train is arriving but it's been way more than three minutes**.
+* Using `--jit-compiler`: **0.5s**. But rather than giving me an answer, Octave
+  gives me a segmentation fault.
