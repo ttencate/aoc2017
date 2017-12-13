@@ -1,7 +1,0 @@
-# [Day 13](http://adventofcode.com/2017/day/13) in LANGUAGE
-
-Part One
-
----
-
-Part Two

@@ -26,7 +26,6 @@ both on what I know, and what might be suitable for such puzzles):
 * REBOL
 * F#
 * Kotlin
-* Octave
 * Pony
 * Icon
 * COMAL
@@ -62,6 +61,7 @@ Used, in alphabetical order (this year's entries in bold):
 * **Julia** ([2017, day 9](09_julia))
 * Lua ([2016, day 18](https://github.com/ttencate/aoc2016/18_lua))
 * OCaml ([2016, day 12](https://github.com/ttencate/aoc2016/12_ocaml))
+* **Octave** ([2017, day 13](13_octave))
 * OpenCL ([2016, day 14](https://github.com/ttencate/aoc2016/14_opencl))
 * Pascal ([2016, day 10](https://github.com/ttencate/aoc2016/10_pascal))
 * Pen and paper (and a calculator) ([2016, day 15](https://github.com/ttencate/aoc2016/15_pen_and_paper))
