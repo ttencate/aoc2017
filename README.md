@@ -27,11 +27,12 @@ both on what I know, and what might be suitable for such puzzles):
 * F#
 * Kotlin
 * Pony
+* Boo
+* Nemerle
 * Icon
 * COMAL
 * Eiffel
 * Prolog
-* CUDA
 * GLSL
 * APL
 * Ada
@@ -46,6 +47,7 @@ Used, in alphabetical order (this year's entries in bold):
 * C++ ([2016, day 24](https://github.com/ttencate/aoc2016/24_cpp))
 * C# ([2016, day 17](https://github.com/ttencate/aoc2016/17_cs))
 * COBOL ([2016, day 1](https://github.com/ttencate/aoc2016/01_cobol))
+* **CUDA** ([2017, day 14](14_cuda))
 * **CoffeeScript** ([2017, day 7](07_coffeescript))
 * D ([2016, day 11](https://github.com/ttencate/aoc2016/11_d))
 * **Dart** ([2017, day 12](12_dart))
