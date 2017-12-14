@@ -22,4 +22,37 @@ out (if it works on Linux at all).
 
 ---
 
-Part Two
+Now on to part two: a connected components analysis. How could this efficiently
+be done in parallel on a GPU? It's not embarrassingly parallel, because one
+square somewhere can affect connectedness of components that span the entire
+grid. So we could do some bottom-up approach, starting with 1×1 squares,
+linking them into 2×2, then 4×4, and so on. The drawback is that this is tricky
+to get right. We could also work along scanlines: first do a horizontal pass,
+then a vertical one, and repeat until everything is linked up. This is
+sensitive to pathological cases where we'd need O(_n_) iterations (where _n_ is
+the number of pixels) before convergence happens.
+
+It turns out that CCL (connected components labeling) on the GPU is a
+nontrivial problem, and several
+[papers](http://hpcg.purdue.edu/bbenes/papers/Stava2011CCL.pdf)
+[have](http://citeseerx.ist.psu.edu/showciting?cid=477854)
+[been](https://www.researchgate.net/publication/224257745_Computing_Strongly_Connected_Components_in_Parallel_on_CUDA)
+[written](http://cstar.iiit.ac.in/~kkishore/conn_c.pdf) about it.
+
+I'm not inclined to put a lot of effort into this right now, so I'll just do
+the entire thing in a single CUDA kernel invocation. And because I'm lazy, I'll
+just do the whole thing using flood fills. The advantage over established
+algorithms is that there's no need to relabel all components afterwards; I can
+just assign incremental labels and the total count pops right out at the end.
+Lame but effective.
+
+However, I ran into a problem:
+
+    ptxas warning : Stack size for entry function '_Z24labelConnectedComponentsPiS_' cannot be statically determined
+    Bus error (core dumped)
+
+I think this is due to recursion, and might be CUDA-speak for "stack overflow".
+But even giving it 10 MB of stack (using
+`cudaDeviceSetLimit(cudaLimitStackSize, 10 * (1 << 20));`) did not solve it.
+Alright, alright, I'll use a queue instead of recursion. A nice ring buffer,
+to salvage at least _some_ of my dignity.

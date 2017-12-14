@@ -81,7 +81,7 @@ int main(void) {
   memcpy(input, inputStr.data(), n);
 
   int *usedSquares;
-  cudaMallocManaged(&usedSquares, ROWS);
+  cudaMallocManaged(&usedSquares, ROWS * sizeof(int));
 
   knotHash<<<1, ROWS>>>(input, n, usedSquares);
 
