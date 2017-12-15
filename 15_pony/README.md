@@ -81,9 +81,18 @@ if Pony is as fast as it claims to be, all this message passing is going to be
 a lot more costly than the 3-second loop we saw using PyPy. So I settled for
 iterators instead, which have good support in Pony too.
 
+After I got all my reference capabilities straight, the Pony program gave the
+right answer in 3 seconds – _including_ compile time. Actual running time is
+only 0.7 seconds. Nice!
 
 ---
 
-Actually, I peeked at part two by solving the first part in Python, to see if I
-needed to save some compute cycles for part two. But it seems this should run
-in a comparable amount of time.
+The second part isn't much more difficult. Just change a few numbers, add a
+modulo check, and Bob's your pony.
+
+As said, I tried Pony a few days ago and got really frustrated because of the
+difficulty reading stdin. But once you get into the right mindset, Pony's
+actually a pretty fun language with a lot of static guarantees, great compiler
+messages, reasonable documentation and a very good tutorial. It does really
+seem like a solid competitor to Rust, Nim, Go et al. to become the
+close-to-the-metal yet safe parallel programming language of the future.
