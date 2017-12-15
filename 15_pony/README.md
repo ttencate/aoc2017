@@ -73,13 +73,14 @@ looks similar to `try`/`catch`, but error handling is actually more like
 the type name and also on any method calls that might call `error`.
 
 For the actual algorithm, my initial thought was to have two `Generator` actor
-and a `Judge` actor, and have them communicate using behaviours. One problem is
-that behaviours are fire-and-forget; to get values back from a generator, you
-either need to pass it a callback (which makes zip'ing the two iterators
-difficult) or pass it a promise (which is syntactically awkward). Besides, even
-if Pony is as fast as it claims to be, all this message passing is going to be
-a lot more costly than the 3-second loop we saw using PyPy. So I settled for
-iterators instead, which have good support in Pony too.
+and a `Judge` actor, and have them communicate using behaviours, just to try
+out these concurrency features. One problem with this is that behaviours are
+fire-and-forget; to get values back from a generator, you either need to pass
+it a callback (which makes zip'ing the two iterators difficult) or pass it a
+promise (which is syntactically awkward). Besides, even if Pony is as fast as
+it claims to be, all this message passing is going to be a lot more costly than
+the 3-second loop we saw using PyPy. So I settled for iterators instead, which
+have good support in Pony too.
 
 After I got all my reference capabilities straight, the Pony program gave the
 right answer in 3 seconds – _including_ compile time. Actual running time is
