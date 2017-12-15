@@ -2,12 +2,12 @@
 
 This looks similar to a linear congruential generator, but instead of using
 addition, it uses multiplication. It hasn't escaped me that 2147483647 is
-2<sup>31</sup> - 1, and is a (Mersenne) prime. But neither 16807 nor 8921 is
-prime, although the two numbers are comprime. But number theory isn't my strong
-suit, so I don't know if these facts are at all helpful. From a quick check,
-the matches appears to be scattered fairly randomly. So I guess brute force is
-what we ought to be doing; and for 40 million numbers, I'd better pick a
-language that isn't _overly_ slow.
+2<sup>31</sup> - 1, and is a (Mersenne) prime. Neither 16807 nor 8921 is prime,
+although the two numbers are comprime. But number theory isn't my strong suit,
+so I don't know if these facts are at all helpful. From a quick check, the
+matches appears to be scattered fairly randomly. So I guess brute force is what
+we ought to be doing; and for 40 million numbers, I'd better pick a language
+that isn't _overly_ slow.
 
 "Pony is an open-source, object-oriented, actor-model, capabilities-secure,
 high-performance programming language." OK, I don't need half of that, but
