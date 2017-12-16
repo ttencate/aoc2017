@@ -24,7 +24,6 @@ both on what I know, and what might be suitable for such puzzles):
 * Elixir
 * Nim
 * REBOL
-* F#
 * Kotlin
 * Boo
 * Nemerle
@@ -51,6 +50,7 @@ Used, in alphabetical order (this year's entries in bold):
 * D ([2016, day 11](https://github.com/ttencate/aoc2016/11_d))
 * **Dart** ([2017, day 12](12_dart))
 * **Erlang** ([2017, day 10](10_erlang))
+* **F#** ([2017, day 16](10_fsharp))
 * **Forth** ([2016, day 2](02_forth))
 * Fortran 90 ([2016, day 8](https://github.com/ttencate/aoc2016/08_fortran))
 * Go ([2016, day 25](https://github.com/ttencate/aoc2016/25_go))
