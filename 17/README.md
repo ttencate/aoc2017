@@ -5,6 +5,8 @@ BBC Micro (Model B), powered by BBC BASIC. The machine had 32 kB of RAM and ran
 at 2 MHz. Which, I figured, should be enough to get through today's puzzle!
 Part one, at least…
 
+![Screenshot of BeebEm](screenshot_beeb.png)
+
 Unfortunately, my Beeb died on me a few years ago, so I'm going to be using an
 emulator today. I installed the Linux port of BeebEm and tried to type `*.` (an
 abbreviation for `*CAT`) to see if there was an emulated disk in the drive. But
@@ -101,12 +103,16 @@ index, of course we use the `MOD` operator instead of stepping 359 times.
 This being a quadratic-time algorithm due to the slow insertions, it would have
 taken a while to run on a real Beeb. Fortunately, I can crank up the emulator
 speed to 100×; I don't know if it achieves that, but it did make the program
-finish in under a minute. I wonder if a linked list would be more efficient: on
-the one hand, insertions are constant-time, but on the other hand, we'd need to
-traverse half the list on average to find the next insertion point. The big-O
-doesn't care, but the machine might. Cache efficiency wasn't really a thing
-yet, and maybe memory reads are faster than writes so the read-heavy linked
-list implementation comes out ahead of the write-heavy?
+finish in under a minute and produce the right answer:
+
+![Screenshot of BeebEm with solution for 17a](screenshot_17a.png)
+
+I wonder if a linked list would be more efficient: on the one hand, insertions
+are constant-time, but on the other hand, we'd need to traverse half the list
+on average to find the next insertion point. The big-O doesn't care, but the
+machine might. Cache efficiency wasn't really a thing yet, and maybe memory
+reads are faster than writes so the read-heavy linked list implementation comes
+out ahead of the write-heavy?
 
 ---
 
@@ -145,4 +151,6 @@ algorithm fast enough even for this early '80s machine.
     190PRINTB%             Print the answer!
 
 In fact, it was more than fast enough: it ran even faster than the first
-version, _and_ produced the right answer. Victory!
+part, _and_ produced the right answer. Victory!
+
+![Screenshot of BeebEm with solution for 17b](screenshot_17b.png)
