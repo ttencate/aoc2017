@@ -61,16 +61,18 @@ So let's do it by hand:
     >BPUT#F%,10
 
 Next up: write code to read this file and parse the bytes back into an integer.
+Notes at the end of the line are just for this README and not part of the
+program, of course.
 
-    >10F%=OPENIN("input")
-    >20I%=0
-    >30B%=BGET#F%
-    >40IFB%=10THENGOTO70
-    >50I%=I%*10+(B%-48)
-    >60GOTO30
-    >70CLOSE#F%
-    >80PRINTI%
+    >10F%=OPENIN("input")  Open the input file.
+    >20I%=0                Our step number I% (for "input") starts at zero.
+    >30B%=BGET#F%            Read a byte into B%.
+    >40IFB%=10THENGOTO70     If it's a newline, break out of the loop.
+    >50I%=I%*10+(B%-48)      Shift all digits left (*10) and add the last digit.
+    >60GOTO30              And repeat.
+    >70CLOSE#F%            Close the file.
     >RUN
+    >PRINTI%
            359
 
 By prefixing a statement with a line number, it becomes part of your program
@@ -85,16 +87,16 @@ Arrays are zero-indexed, but they include the upper bound, so `DIMB%(2017)`
 actually gives us a 2018-element array, just as we need. To find the next
 index, of course we use the `MOD` operator instead of stepping 359 times.
 
-    80DIMB%(2017)
-    90A%=0
-    100FORS%=1TO2017
-    110A%=((A%+I%)MODS%)+1
-    120FORJ%=S%TOA%+1STEP-1
-    130B%(J%)=B%(J%-1)
-    140NEXTJ%
-    150B%(A%)=S%
-    160NEXTS%
-    170PRINTB%((A%+1)MODS%)
+    80DIMB%(2017)            B% is the circular buffer.
+    90A%=0                   A% is our current index.
+    100FORS%=1TO2017         For each number in the range 1...2017:
+    110A%=((A%+I%)MODS%)+1     Find the next insertion point.
+    120FORJ%=S%TOA%+1STEP-1    \
+    130B%(J%)=B%(J%-1)          | Shift all subsequent elements up.
+    140NEXTJ%                  /
+    150B%(A%)=S%               Put the next element into place.
+    160NEXTS%                And repeat.
+    170PRINTB%((A%+1)MODS%)  Finally, print the answer.
 
 This being a quadratic-time algorithm due to the slow insertions, it would have
 taken a while to run on a real Beeb. Fortunately, I can crank up the emulator
@@ -108,4 +110,39 @@ list implementation comes out ahead of the write-heavy?
 
 ---
 
-Part Two
+Second part: yikes! There's no way we're going to fit 50 million items in 32
+kB. So I'm going to have to get clever. It's easy enough to keep track of the
+place where 0 ends up – in fact, insertions always happen after it, so 0 will
+remain at position 0. So all we need to do is track which value comes after it
+during each of the 50000000 steps, and hope that they can be simulated fast
+enough. For reference: the array-based implementation probably did about 2000 ×
+2000 × ½ × ½ = 1 million operations, but each operation was more complex.
+
+Can we improve even further? After all, most insertions won't happen anywhere
+near 0. Can we predict when the current pointer will land at 0, and only handle
+those cases? Not easily, I think: the denominator of the modulo operation
+changes each step. But we do know that at most times, the buffer is going to be
+much bigger than 359, so we can skip a good number of iterations by jumping
+ahead by the largest possible integer multiple of 359. This should make the
+algorithm fast enough even for this early '80s machine.
+
+    80A%=0                 A% is again our current index.
+    90S%=1                 S% is the next value to insert.
+    100B%=0                B% is the value after 0 in the buffer.
+    110REPEAT              Start the loop.
+    120C%=(S%-A%)DIV(I%+1)   C% indicates how many times we can step ahead
+                             before we get close to the end. (The end shifts
+                             in the meantime, so this could happen more than
+                             once in a row.)
+    130IFC%>0:A%=A%+C%*(I%+1):S%=S%+C%:GOTO180
+                             If we can skip ahead: do it, and proceed with the
+                             next loop iteration.
+    140A%+(A%+I%)MODS%       We couldn't skip ahead, so wrap around.
+    150IFA%=0:B%=S%          If we insert after the 0: save this value.
+    160A%=A%+1               Increment current index.
+    170S%=S%+1               Increment value to be inserted.
+    180UNTILS%>50000000    Loop until we've inserted 50000000 values.
+    190PRINTB%             Print the answer!
+
+In fact, it was more than fast enough: it ran even faster than the first
+version, _and_ produced the right answer. Victory!
