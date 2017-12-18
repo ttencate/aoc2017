@@ -58,6 +58,17 @@ sure whether or not this is idiomatic, but it is convenient. From a cursory
 glance, it seems that return codes or setting class fields would be more
 idiomatic.
 
+Once I got everything to compile, the program crashed with an overflow.
+Changing all registers to be `INTEGER_64` fixed this and resulted in the right
+answer.
+
 ---
 
-Part Two
+On to the second part! `snd` and `rcv`… how could I possibly not have seen this
+coming?! Anyway, I'll implement it as follows: keep two parallel `STATE`s, each
+with a feature (function) `is_blocked`. We just execute instructions on
+non-blocked `STATE`s until both are blocked, and then we're done.
+
+This all worked fine, but took over a minute to run. I'm not sure that's
+because Eiffel is slow, or because the input contains a long-running program.
+Either way, the answer was correct, so yay!

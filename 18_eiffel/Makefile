@@ -1,5 +1,5 @@
 .PHONY: all
-all: run18a # run18b
+all: run18a run18b
 
-run%: aoc%.e
-	se c aoc$* make -o $* && ./$* < input
+run%: %/*.e
+	cd $* && se c MAIN make -o $* && ./$* < ../input

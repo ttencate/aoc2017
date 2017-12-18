@@ -1,4 +1,4 @@
-class AOC18A
+class MAIN
 
 create {ANY}
   make
@@ -8,17 +8,21 @@ feature {ANY}
   make
     local
       program: ARRAY[INSTRUCTION]
-      state: STATE
+      states: ARRAY[STATE]
     do
       program := parse_input
       from
-        create state.initial(program)
+        create states.make(0, 1)
+        states.put(create {STATE}.initial(program, 0), 0)
+        states.put(create {STATE}.initial(program, 1), 1)
+        (states @ 0).set_peer(states @ 1)
+        (states @ 1).set_peer(states @ 0)
       until
-        state.is_done
+        states.for_all(agent {STATE}.is_blocked)
       loop
-        state.get_next_instruction.execute(state)
+        states.for_each(agent {STATE}.maybe_execute)
       end
-      print(state.get_last_sound_frequency.to_string + "%N")
+      print((states @ 1).get_send_count.to_string + "%N")
     end
 
 feature {}
