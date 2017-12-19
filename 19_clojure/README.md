@@ -26,4 +26,4 @@ program did give the correct output.
 
 ---
 
-Part Two
+The second part was a trivial modification.

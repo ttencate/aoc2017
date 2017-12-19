@@ -19,7 +19,6 @@ both on what I know, and what might be suitable for such puzzles):
 
 * Java
 * PHP
-* Clojure
 * Elixir
 * Nim
 * REBOL
@@ -43,6 +42,7 @@ Used, in alphabetical order (this year's entries in bold):
 * C ([2016, day 23](https://github.com/ttencate/aoc2016/23_c))
 * C++ ([2016, day 24](https://github.com/ttencate/aoc2016/24_cpp))
 * C# ([2016, day 17](https://github.com/ttencate/aoc2016/17_cs))
+* **Clojure** ([2017, day 19](19_clojure))
 * COBOL ([2016, day 1](https://github.com/ttencate/aoc2016/01_cobol))
 * **CUDA** ([2017, day 14](14_cuda))
 * **CoffeeScript** ([2017, day 7](07_coffeescript))
