@@ -71,4 +71,49 @@ is much easier.
 
 ---
 
-Part Two
+On to the second part: collision detection! I didn't see that coming. Now we
+_do_ need to simulate, I suppose. Or do we…? Collisions are not based on
+Manhattan distance, but on exact equality. So we _can_ solve this analytically,
+by finding the collisions between each pair of particles in an O(_n_²) fashion.
+As _n_ = 1000, this isn't too bad.
+
+The position of particle `p` at time `t` is given by:
+
+    pos(p, t) = p.p + p.v × t + p.a × t²
+
+Particles `p` and `q` collide if and only if `pos(p, t) = pos(q, t)` for some
+`t ≥ 0`. (I'm sure this latter condition is going to trip many people up if
+they also count collisions in the past.)
+
+Because this is an equality whose left and right side are both 3D vectors, we
+need to find a `t` for which all three of them match. We can just find the (up
+to two) `t`s for which this holds, per coordinate, using the
+[quadratic formula](https://en.wikipedia.org/wiki/Quadratic_formula),
+and checking that the answer is an integer. Having found the candidate times
+for each coordinate individually, we do a set intersection on them. If the set
+is nonempty, we've found a `t` at which a collision happens.
+
+Finally, we need to be careful not to remove colliding pairs entirely, because
+they might both collide with a third particle.
+
+After getting this to compile, it crashed with an `OverflowError`. Turns out
+(of course) that the difference in acceleration can sometimes be zero, resulting
+in division by zero. In this degenerate case, we need to do an intersection of
+two linear equations, rather than quadratic. Similarly, if the initial velocity
+difference is also zero, we just test if the positions are equal. This is the
+ultimate degenerate case: both particles have an identical `x` or `y` or `z`
+coordinate _at all times_. I represented this as a `nil` sequence, to
+distinguish it from an empty sequence.
+
+While debugging this (because of course it's too complicated), I realised that
+I was overlooking something else. When two particles are determined to collide,
+we must also check whether both of them even still existed at that time! This
+isn't impossible, but would involve storing all potential collisions in a list,
+sort it by time, then run through it.
+
+From my (admittedly buggy) debug output, I can see that times are rarely
+greater than a few hundred or so. So a simulation is entirely feasible. And
+that's what I ended up doing. Using a hash table for collision checks means we
+don't have an O(_n_²) collision detection, but an O(_n_) one. And because the
+right answer appears after 39 time steps already, we have done 1000 × 39
+operations instead of 1000 × 1000, so it's actually pretty fast too.

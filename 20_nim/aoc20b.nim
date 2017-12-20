@@ -1,13 +1,20 @@
+import math
 import pegs
 import sequtils
 import strutils
+import tables
 
 type Vec3 = tuple[x: int, y: int, z: int]
 
-proc norm(p: Vec3): int =
-  return abs(p.x) + abs(p.y) + abs(p.z)
+proc `+`(a: Vec3, b: Vec3): Vec3 =
+  return (a.x + b.x, a.y + b.y, a.z + b.z)
 
 type Particle = tuple[p: Vec3, v: Vec3, a: Vec3]
+
+proc timeStep(p: Particle): Particle =
+  result.a = p.a
+  result.v = p.v + result.a
+  result.p = p.p + result.v
 
 let assignmentPeg: Peg = peg"""
   assignment <- ws name ws '=' ws value ws ( ',' ws ) ?
@@ -44,11 +51,13 @@ for line in lines(stdin):
     start += length
   particles &= particle
 
-var minAcceleration: int = high(int)
-var index: int = -1
-for i in countup(particles.low, particles.high):
-  let acceleration = particles[i].a.norm()
-  if acceleration < minAcceleration:
-    minAcceleration = acceleration
-    index = i
-echo($index)
+for i in countup(1, 1000):
+  # Note: starting positions are unique, so no need to check for collisions
+  # before we start.
+  particles = particles.map(timeStep)
+  var collided = repeat(false, particles.len())
+  var counts = initTable[Vec3, int](nextPowerOfTwo(particles.len()))
+  for particle in particles:
+    counts[particle.p] = counts.getOrDefault(particle.p) + 1
+  particles.keepIf(proc(p: Particle): bool = counts[p.p] <= 1)
+echo($len(particles))
