@@ -24,7 +24,6 @@ both on what I know, and what might be suitable for such puzzles):
 * Kotlin
 * Boo
 * Nemerle
-* Icon
 * COMAL
 * Prolog
 * GLSL
@@ -56,6 +55,7 @@ Used, in alphabetical order (this year's entries in bold):
 * Groovy ([2016, day 13](https://github.com/ttencate/aoc2016/13_groovy))
 * Haskell ([2016, day 16](https://github.com/ttencate/aoc2016/16_haskell))
 * Haxe ([2016, day 22](https://github.com/ttencate/aoc2016/22_haxe))
+* **Icon** ([2017, day 21](21_icon))
 * JavaScript ([2016, day 20](https://github.com/ttencate/aoc2016/20_javascript))
 * **J** ([2017, day 11](11_j))
 * **Julia** ([2017, day 9](09_julia))

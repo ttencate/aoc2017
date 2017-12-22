@@ -1,0 +1,124 @@
+#!/usr/bin/icon
+
+procedure dump(parts)
+  every write(!parts)
+end
+
+procedure split(str)
+  local parts
+  parts := list()
+  str ? while put(parts, tab(many('.#'))) do tab(upto('.#'))
+  return parts
+end
+
+procedure join(parts)
+  local str
+  str := ""
+  every str ||:= "/" || !parts
+  str := str[2:0]
+  return str
+end
+
+procedure flip(in)
+  local out
+  out := list()
+  every put(out, reverse(!in))
+  return out
+end
+
+procedure rotate(in)
+  local out
+  local line
+  local i
+  local j
+  out := list()
+  every i := 1 to *in do {
+    line := ""
+    every j := 1 to *in do {
+      line ||:= in[j][-i]
+    }
+    put(out, line)
+  }
+  return out
+end
+
+procedure readInput()
+  local line
+  local arrow
+  local input
+  local output
+  local codebook
+  codebook := table()
+  while line := read() do {
+    arrow := find(" => ", line)
+    input := split(line[1:arrow])
+    output := split(line[arrow + 4:0])
+    codebook[join(input)] := output
+    codebook[join(rotate(input))] := output
+    codebook[join(rotate(rotate(input)))] := output
+    codebook[join(rotate(rotate(rotate(input))))] := output
+    codebook[join(flip(input))] := output
+    codebook[join(flip(rotate(input)))] := output
+    codebook[join(flip(rotate(rotate(input))))] := output
+    codebook[join(flip(rotate(rotate(rotate(input)))))] := output
+  }
+  return codebook
+end
+
+procedure slice(in, row, col, size)
+  local out
+  local i
+  out := list()
+  every i := row to row + size - 1 do {
+    put(out, in[i][col+:size])
+  }
+  return out
+end
+
+procedure replace(in, codebook)
+  local out
+  local step
+  local n
+  local i
+  local j
+  local k
+  local block
+  local replacement
+  n := *in
+  step := if (n % 2) = 0 then 2 else 3
+  out := list()
+  every i := 1 to n by step do {
+    every j := 1 to step + 1 do put(out, "")
+    every j := 1 to n by step do {
+      block := slice(in, i, j, step)
+      replacement := codebook[join(block)]
+      every k := 1 to *replacement do {
+        out[-k] ||:= replacement[-k]
+      }
+    }
+  }
+  return out
+end
+
+procedure count(in)
+  local cnt
+  cnt := 0
+  every cnt +:= ((!!in == "#") & 1)
+  return cnt
+end
+
+procedure main()
+  local codebook
+  local grid
+  local size
+
+  codebook := readInput()
+
+  grid := [
+    ".#.",
+    "..#",
+    "###"
+  ]
+  every 1 to 5 do grid := replace(grid, codebook)
+  write(count(grid))
+end
