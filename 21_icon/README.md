@@ -69,7 +69,13 @@ in this way!
 
 ---
 
-Part Two
+Part two was a mercifully simple change, and even my crude string concatenation
+based algorithms produced the right answer in seconds.
+
+In retrospect, Icon turned out to be much more interesting than I had expected.
+I still don't think it's a shining example of great language design, but its
+expression evaluation strategy is certainly powerful, and unlike anything I've
+ever seen before (except maybe Prolog).
 
 By the way, did you notice that the initial pattern is the
 [glider](https://en.wikipedia.org/wiki/Glider_(Conway's_Life))?
