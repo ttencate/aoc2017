@@ -10,17 +10,27 @@ defmodule Aoc22a do
     {-dy, dx}
   end
 
+  def reverse({dx, dy}) do
+    {-dx, -dy}
+  end
+
   def add({xa, ya}, {xb, yb}) do
     {xa + xb, ya + yb}
   end
 
   def step({pos, dir, infected, infections}) do
-    if MapSet.member?(infected, pos) do
-      dir = turn_right(dir)
-      {add(pos, dir), dir, MapSet.delete(infected, pos), infections}
-    else
-      dir = turn_left(dir)
-      {add(pos, dir), dir, MapSet.put(infected, pos), infections + 1}
+    case Map.get(infected, pos, ".") do
+      "." ->
+        dir = turn_left(dir)
+        {add(pos, dir), dir, Map.put(infected, pos, "W"), infections}
+      "W" ->
+        {add(pos, dir), dir, Map.put(infected, pos, "#"), infections + 1}
+      "#" ->
+        dir = turn_right(dir)
+        {add(pos, dir), dir, Map.put(infected, pos, "F"), infections}
+      "F" ->
+        dir = reverse(dir)
+        {add(pos, dir), dir, Map.delete(infected, pos), infections}
     end
   end
 
@@ -38,14 +48,14 @@ start_infected = Stream.filter(
     fn({y, line}) ->
       Stream.map(
         Stream.zip(xs, String.codepoints(line)),
-        fn({x, char}) -> if char == "#" do {x, y} else nil end end) end),
+        fn({x, char}) -> if char != "." do {{x, y}, char} else nil end end) end),
   fn(element) -> element != nil end)
 start_position = {0, 0}
 start_direction = {0, -1}
 start_infections_count = 0
 
-start_state = {start_position, start_direction, MapSet.new(start_infected), start_infections_count}
+start_state = {start_position, start_direction, Map.new(start_infected), start_infections_count}
 path = Stream.iterate(start_state, fn(state) -> Aoc22a.step(state) end)
 
-{_, _, _, end_infections_count} = Enum.at(path, 10000)
+{_, _, end_infected, end_infections_count} = Enum.at(path, 10000000)
 IO.puts(end_infections_count)

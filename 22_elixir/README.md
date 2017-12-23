@@ -11,6 +11,15 @@ array of booleans. However, we'd need to embiggen the array each time the
 pointer steps out of bounds, which is tedious. It's much easier to maintain a
 set of infected coordinates instead.
 
+As usual in functional languages, we need to keep the entire state in a value
+(a tuple in this case), and have a function that takes a state and computes the
+next one. Iterate this until done, and extract the answer. Simple.
+
 ---
 
-Part Two
+For the second part, a simple set is no longer enough. We now need a map of
+coordinates to state. The default state, clean, is represented as absence from
+the map.
+
+In conclusion: I was wrong, and Elixir is nothing like Ruby at all. It's just
+Erlang with a more pleasant syntax. Which is exactly what the world needed!
