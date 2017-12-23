@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-$registers = [];
+$registers = ["a" => 1];
 $instructions = [];
 $pc = 0;
 $mul_count = 0;
@@ -84,6 +84,7 @@ while ($line = fgets(STDIN)) {
 
 while (array_key_exists($pc, $instructions)) {
   $instructions[$pc]();
+  print_r($registers);
 }
 echo $mul_count, "\n";
 
