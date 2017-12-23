@@ -17,10 +17,9 @@ implementation for Linux has to exist.
 Languages I might still use, roughly in order of decreasing preference (based
 both on what I know, and what might be suitable for such puzzles):
 
-* Java
-* PHP
-* REBOL
 * Kotlin
+* Java
+* REBOL
 * Boo
 * Nemerle
 * COMAL
@@ -67,6 +66,7 @@ Used, in alphabetical order (this year's entries in bold):
 * Pascal ([2016, day 10](https://github.com/ttencate/aoc2016/10_pascal))
 * Pen and paper (and a calculator) ([2016, day 15](https://github.com/ttencate/aoc2016/15_pen_and_paper))
 * Perl ([2016, day 21](https://github.com/ttencate/aoc2016/21_perl))
+* **PHP** ([2017, day 23](23_php))
 * **Pony** ([2017, day 15](15_pony))
 * **PostgreSQL** ([2017, day 1](01_postgresql))
 * Python ([2016, day 5](https://github.com/ttencate/aoc2016/05_python))
