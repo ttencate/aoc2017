@@ -18,7 +18,6 @@ Languages I might still use, roughly in order of decreasing preference (based
 both on what I know, and what might be suitable for such puzzles):
 
 * Kotlin
-* Java
 * REBOL
 * Boo
 * Nemerle
@@ -57,6 +56,7 @@ Used, in alphabetical order (this year's entries in bold):
 * **Icon** ([2017, day 21](21_icon))
 * JavaScript ([2016, day 20](https://github.com/ttencate/aoc2016/20_javascript))
 * **J** ([2017, day 11](11_j))
+* **Java** ([2017, day 24](24_java))
 * **Julia** ([2017, day 9](09_julia))
 * Lua ([2016, day 18](https://github.com/ttencate/aoc2016/18_lua))
 * **Nim** ([2017, day 20](20_nim))
