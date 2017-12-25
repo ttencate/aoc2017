@@ -17,7 +17,6 @@ implementation for Linux has to exist.
 Languages I might still use, roughly in order of decreasing preference (based
 both on what I know, and what might be suitable for such puzzles):
 
-* Kotlin
 * REBOL
 * Boo
 * Nemerle
@@ -58,6 +57,7 @@ Used, in alphabetical order (this year's entries in bold):
 * **J** ([2017, day 11](11_j))
 * **Java** ([2017, day 24](24_java))
 * **Julia** ([2017, day 9](09_julia))
+* **Kotlin** ([2017, day 25](25_kotlin))
 * Lua ([2016, day 18](https://github.com/ttencate/aoc2016/18_lua))
 * **Nim** ([2017, day 20](20_nim))
 * OCaml ([2016, day 12](https://github.com/ttencate/aoc2016/12_ocaml))

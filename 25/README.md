@@ -1,7 +1,0 @@
-# [Day 25](http://adventofcode.com/2017/day/25) in LANGUAGE
-
-Part One
-
----
-
-Part Two
