@@ -3,23 +3,23 @@
 [Advent of Code 2017](http://adventofcode.com/2017) is a programming contest,
 in which a new puzzle comes online every day from 1 until 25 December. These
 are my solutions to the puzzles. Like
-[last year](https://github.com/ttencate/aoc2016), I'm solving each day's puzzle
-in a different programming language. As an additional additional challenge, I'm
-not using any language I used last year!
+[last year](https://github.com/ttencate/aoc2016), I solved each day's puzzle in
+a different programming language. As an additional additional challenge, I
+didn't use any language I used last year!
 
 ## Languages
 
-I'm using only "mainstream" programming languages, not esoteric or toy
-languages, because this will be hard enough as is. However, I do include some
+I used only "mainstream" programming languages, not esoteric or toy
+languages, because this was hard enough as is. However, I did include some
 older languages in the list out of historic interest. Plus, a free (as in beer)
-implementation for Linux has to exist.
+implementation for Linux had to exist.
 
-Languages I might still use, roughly in order of decreasing preference (based
-both on what I know, and what might be suitable for such puzzles):
+Languages I could still have used, roughly in order of decreasing preference
+(based both on what I know, and what might be suitable for such puzzles):
 
-* REBOL
 * Boo
 * Nemerle
+* REBOL
 * COMAL
 * Prolog
 * GLSL
