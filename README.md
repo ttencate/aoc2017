@@ -7,6 +7,9 @@ are my solutions to the puzzles. Like
 a different programming language. As an additional additional challenge, I
 didn't use any language I used last year!
 
+A [retrospective](RETROSPECTIVE.md) is now available. Moreover, each solution
+subdirectory contains a `README.md` with my thoughts on that day's language.
+
 ## Languages
 
 I used only "mainstream" programming languages, not esoteric or toy
