@@ -1,5 +1,5 @@
 .PHONY: all
-all: run25a # run25b
+all: run25a
 
 run%: %.kts
 	kotlinc -script $< < input
