@@ -8,59 +8,66 @@ val tape = mutableMapOf<Int, Int>()
 var currentPos = 0
 var steps = 0
 
-fun CharSequence.ifMatches(regex: String, fn: (MatchResult.Destructured) -> Unit): Boolean {
-    val result = Regex(regex).matchEntire(this)
-    if (result != null) {
-        fn(result.destructured)
-        return true
+class MatchSequence(private val line: CharSequence) {
+    var matched = false
+        private set
+    infix fun String.then(fn: (MatchResult.Destructured) -> Unit) {
+        if (!matched) {
+            Regex(this).matchEntire(line)?.also {
+                fn(it.destructured)
+                matched = true
+            }
+        }
     }
-    return false
+}
+
+fun CharSequence.matchRegexes(fn: MatchSequence.() -> Unit) {
+    if (!MatchSequence(this).apply(fn).matched) {
+        throw RuntimeException("Line ${this} did not match any regex")
+    }
 }
 
 var state: State? = null
 var transition: Transition? = null
-for (line in System.`in`.bufferedReader().lines().map(String::trim)) {
-    if (line.isEmpty()) {
-        continue
-    }
-    line.apply {
-        ifMatches("""Begin in state (.*)\.""") { (startState) ->
+System.`in`.bufferedReader().lines().map(String::trim).filter(String::isNotEmpty).forEach { line ->
+    line.matchRegexes {
+        """Begin in state (.*)\.""" then { (startState) ->
             currentState = startState
-        } ||
-        ifMatches("""Perform a diagnostic checksum after (\d+) steps\.""") { (stepsStr) ->
+        }
+        """Perform a diagnostic checksum after (\d+) steps\.""" then { (stepsStr) ->
             steps = stepsStr.toInt()
-        } ||
-        ifMatches("""In state (.*):""") { (stateName) ->
+        }
+        """In state (.*):""" then { (stateName) ->
             state = State()
             states[stateName] = state!!
-        } ||
-        ifMatches("""If the current value is (\d+):""") { (currentValueStr) ->
+        }
+        """If the current value is (\d+):""" then { (currentValueStr) ->
             transition = Transition()
             state!!.transitions[currentValueStr.toInt()] = transition!!
-        } ||
-        ifMatches("""- Write the value (\d+)\.""") { (writeValueStr) ->
+        }
+        """- Write the value (\d+)\.""" then { (writeValueStr) ->
             transition!!.writeValue = writeValueStr.toInt()
-        } ||
-        ifMatches("""- Move one slot to the (.*)\.""") { (directionStr) ->
+        }
+        """- Move one slot to the (.*)\.""" then { (directionStr) ->
             when (directionStr) {
                 "left" -> transition!!.moveDirection = -1
                 "right" -> transition!!.moveDirection = 1
             }
-        } ||
-        ifMatches("""- Continue with state (.*)\.""") { (nextState) ->
+        }
+        """- Continue with state (.*)\.""" then { (nextState) ->
             transition!!.nextState = nextState
-        } ||
-        throw RuntimeException("Could not parse line ${this}")
+        }
     }
 }
 
+fun Transition.run() {
+    tape[currentPos] = writeValue
+    currentPos += moveDirection
+    currentState = nextState
+}
+
 for (i in 0..steps) {
-    val state = states[currentState]!!
-    val currentValue = tape[currentPos] ?: 0
-    val transition = state.transitions[currentValue]!!
-    tape[currentPos] = transition.writeValue
-    currentPos += transition.moveDirection
-    currentState = transition.nextState
+    states[currentState]!!.transitions[tape[currentPos] ?: 0]!!.run()
 }
 
 println(tape.values.count { it == 1 })

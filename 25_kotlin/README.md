@@ -61,10 +61,10 @@ finally throw an exception (because `throw` is also an expression in Kotlin):
       throw RuntimeException("Could not parse line ${this}")
     }
 
-With some more machinery behind the scenes, this can be made to look even
-nicer:
+With some more machinery behind the scenes (see the final code for details),
+this can be made to look even nicer:
 
-    line.ifMatches {
+    line.matchRegexes {
       """...""" then { (foo) -> ... }
       """...""" then { (bar) -> ... }
     }
