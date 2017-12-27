@@ -17,18 +17,23 @@ languages, because this was hard enough as is. However, I did include some
 older languages in the list out of historic interest. Plus, a free (as in beer)
 implementation for Linux had to exist.
 
-Languages I could still have used, roughly in order of decreasing preference
-(based both on what I know, and what might be suitable for such puzzles):
+Languages I could still have used, in alphabetical order:
 
-* Boo
-* Nemerle
-* REBOL
-* COMAL
-* Prolog
-* GLSL
 * APL
 * Ada
+* Boo
+* COMAL
+* Ceylon
+* Crystal
+* Elm (browser only)
+* GLSL
+* Idris
 * Infinifactory
+* Io
+* Nemerle
+* Pharo
+* Prolog
+* REBOL
 
 Used, in alphabetical order (this year's entries in bold):
 
