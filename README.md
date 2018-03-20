@@ -26,6 +26,7 @@ Languages I could still have used, in alphabetical order:
 * Ceylon
 * Crystal
 * Elm (browser only)
+* GDscript
 * GLSL
 * Idris
 * Infinifactory
@@ -34,6 +35,7 @@ Languages I could still have used, in alphabetical order:
 * Pharo
 * Prolog
 * REBOL
+* Wren
 
 Used, in alphabetical order (this year's entries in bold):
 
