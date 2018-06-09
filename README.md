@@ -23,6 +23,7 @@ Languages I could still have used, in alphabetical order:
 * Ada
 * Boo
 * COMAL
+* Céu
 * Ceylon
 * Crystal
 * Elm (browser only)
