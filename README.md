@@ -32,8 +32,11 @@ Languages I could still have used, in alphabetical order:
 * Idris
 * Infinifactory
 * Io
+* Labview
+* Logtalk
 * Nemerle
 * Pharo
+* Postscript
 * Prolog
 * REBOL
 * Wren
