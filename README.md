@@ -19,11 +19,13 @@ implementation for Linux had to exist.
 
 Languages I could still have used, in alphabetical order:
 
-* APL
 * Ada
+* ALGOL 60
+* APL
 * BLISS
 * Boo
 * COMAL
+* Common Lisp
 * Céu
 * Ceylon
 * Crystal
@@ -32,16 +34,21 @@ Languages I could still have used, in alphabetical order:
 * GLSL
 * Idris
 * Infinifactory
+* Inform7
 * Io
 * Labview
 * Logtalk
 * M4
+* Modula-3
+* MUMPS
 * Nemerle
 * Pharo
-* PL/M
+* PL/I
 * Postscript
 * Prolog
 * REBOL
+* Self
+* SNOBOL
 * Wren
 
 Used, in alphabetical order (this year's entries in bold):
