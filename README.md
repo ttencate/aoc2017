@@ -21,6 +21,7 @@ Languages I could still have used, in alphabetical order:
 
 * APL
 * Ada
+* BLISS
 * Boo
 * COMAL
 * Céu
@@ -34,8 +35,10 @@ Languages I could still have used, in alphabetical order:
 * Io
 * Labview
 * Logtalk
+* M4
 * Nemerle
 * Pharo
+* PL/M
 * Postscript
 * Prolog
 * REBOL
