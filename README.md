@@ -46,7 +46,7 @@ Languages I could still have used, in alphabetical order:
 
 Used, in alphabetical order (this year's entries in bold):
 
-* **ALGOL 68** ([2017, day 5](https://github.com/ttencate/aoc2017/tree/master/05_algol))
+* **ALGOL 68** ([2017, day 5](https://github.com/ttencate/aoc2017/tree/master/05_algol68))
 * Assembly, any architecture (x86, [2016, day 7](https://github.com/ttencate/aoc2016/tree/master/07_x86_assembly))
 * **awk** ([2017, day 4](https://github.com/ttencate/aoc2017/tree/master/04_awk))
 * **BASIC** (BBC BASIC, [2017, day 17](https://github.com/ttencate/aoc2017/tree/master/17_bbcbasic))
