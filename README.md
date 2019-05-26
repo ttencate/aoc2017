@@ -29,14 +29,17 @@ Languages I could still have used, in alphabetical order:
 * Céu
 * Ceylon
 * Crystal
+* [Dyon](https://github.com/PistonDevelopers/dyon)
 * Elm (browser only)
 * GDscript
 * GLSL
+* [Gluon](https://github.com/gluon-lang/gluon)
 * Idris
 * Infinifactory
 * Inform7
 * Io
 * Labview
+* [Little](http://www.little-lang.org/)
 * Logtalk
 * M4
 * Modula-3
