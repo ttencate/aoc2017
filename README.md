@@ -24,6 +24,7 @@ Languages I could still have used, in alphabetical order:
 * APL
 * BLISS
 * Boo
+* CMake
 * COMAL
 * Common Lisp
 * Céu
@@ -42,6 +43,7 @@ Languages I could still have used, in alphabetical order:
 * [Little](http://www.little-lang.org/)
 * Logtalk
 * M4
+* Make
 * Modula-3
 * MUMPS
 * Nemerle
@@ -49,6 +51,7 @@ Languages I could still have used, in alphabetical order:
 * PL/I
 * Postscript
 * Prolog
+* Raku
 * REBOL
 * Self
 * SNOBOL
