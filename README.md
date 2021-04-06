@@ -45,6 +45,7 @@ Languages I could still have used, in alphabetical order:
 * M4
 * Make
 * Modula-3
+* Moonscript
 * MUMPS
 * Nemerle
 * Pharo
